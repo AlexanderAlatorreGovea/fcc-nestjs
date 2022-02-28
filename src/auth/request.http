@@ -1,0 +1,4 @@
+## login
+POST http://localhost:3001/auth/signup
+content-type: application/json
+ 
