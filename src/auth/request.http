@@ -3,9 +3,9 @@ POST http://localhost:3001/auth/signup
 content-type: application/json
 
 {
-    "email": "aleander@hotmail.com",
-    "password": 123
-} 
+    "email": "aleander4@hotmail.com",
+    "password": "alexander123"
+}  
 
 #  ## signup
 # POST http://localhost:3001/auth/signin
