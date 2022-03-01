@@ -13,6 +13,6 @@ export class AuthController {
 
   @Post('signin')
   signIn() {
-    this.authService.signin();
+   return this.authService.signin();
   }
 }
