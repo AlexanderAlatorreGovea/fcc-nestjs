@@ -10,13 +10,15 @@ export class AuthService {
 
   async signup(dto: AuthDto) {
     try {
-      const { password, email } = dto;
+      const { password, email, firstName, lastName } = dto;
       const hash = await argon.hash(password);
 
       const user = await this.prima.user.create({
         data: {
           email,
           hash,
+          firstName,
+          lastName
         },
       });
 

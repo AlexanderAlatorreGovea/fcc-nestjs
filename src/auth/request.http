@@ -1,13 +1,17 @@
-## login
+## signup
 POST http://localhost:3001/auth/signup
 content-type: application/json
 
 {
-    "email": "aleanderr@hotmail.com",
+    "email": "aleanderr333@hotmail.com",
     "password": "alexander123"
 }  
 
-#  ## signup
-# POST http://localhost:3001/auth/signin
-# content-type: application/json
- 
+### signin
+POST http://localhost:3001/auth/signin
+content-type: application/json
+
+{
+    "email": "aleanderr3@hotmail.com",
+    "password": "alexander123"
+} 
