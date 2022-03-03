@@ -1,12 +1,22 @@
 import * as argon from 'argon2';
-import { ForbiddenException, Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
+
+import { PrismaService } from '../prisma/prisma.service';
+
 import { AuthDto } from './dto';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
+import { AuthErrors } from './auth.errors';
 
 @Injectable({})
-export class AuthService {
-  constructor(private prima: PrismaService) {}
+export class AuthService extends AuthErrors {
+  constructor(
+    private prima: PrismaService,
+    private jwt: JwtService,
+    private config: ConfigService,
+  ) {
+    super();
+  }
 
   async signup(dto: AuthDto) {
     try {
@@ -18,53 +28,55 @@ export class AuthService {
           email,
           hash,
           firstName,
-          lastName
+          lastName,
         },
       });
 
-      delete user.hash;
+      const userWithJWT = this.signToken(user.id, user.email);
 
-      return user;
+      return userWithJWT;
     } catch (error) {
       this.throwPrismaOrRegularError(error);
     }
   }
 
   async signin(dto: AuthDto) {
+    const { password, email } = dto;
     const user = await this.prima.user.findUnique({
-      where: {
-        email: dto.email,
-      },
+      where: { email },
     });
 
     if (!user) this.incorrectCredentialsError();
 
     const passwordMatchesHash = await argon.verify(
       user.hash,
-      dto.password,
+      password,
     );
 
     if (!passwordMatchesHash) this.incorrectCredentialsError();
 
-    delete user.hash;
+    const userWithJWT = this.signToken(user.id, user.email);
 
-    return user;
+    return userWithJWT;
   }
 
-  throwPrismaOrRegularError(error) {
-    const FORBIDDEN_CREDENTIALS_ERROR_CODE = 'P2002';
-    const isPrismaError =
-      error instanceof PrismaClientKnownRequestError &&
-      error.code === FORBIDDEN_CREDENTIALS_ERROR_CODE;
+  async signToken(
+    userId: number,
+    email: string,
+  ): Promise<{
+    access_token: string;
+  }> {
+    const payload = {
+      sub: userId,
+      email,
+    };
 
-    if (isPrismaError) {
-      throw new ForbiddenException('Credentials taken');
-    }
+    const secret = this.config.get('JWT_SECRET');
+    const access_token = await this.jwt.signAsync(payload, {
+      expiresIn: '15m',
+      secret,
+    });
 
-    throw error;
-  }
-
-  incorrectCredentialsError() {
-    throw new ForbiddenException('Credentials Incorrect');
+    return { access_token };
   }
 }

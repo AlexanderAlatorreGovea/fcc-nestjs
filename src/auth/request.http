@@ -3,13 +3,14 @@ POST http://localhost:3001/auth/signup
 content-type: application/json
 
 {
-    "email": "aleanderr333@hotmail.com",
+    "email": "aleanderr333333@hotmail.com",
     "password": "alexander123"
 }  
 
 ### signin
 POST http://localhost:3001/auth/signin
 content-type: application/json
+Authorization: Bearer 
 
 {
     "email": "aleanderr3@hotmail.com",
