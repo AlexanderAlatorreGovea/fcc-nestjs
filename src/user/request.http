@@ -1,2 +1,3 @@
 ## Get personal information
 GET  http://localhost:3001/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjI4MDAyMiwiZXhwIjoxNjQ2MjgwOTIyfQ.HNhbbuclHkLeKLOVV8Twmzhwq_7noc99TcaG9qUhaxA
