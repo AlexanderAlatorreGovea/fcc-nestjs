@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Patch,
@@ -32,7 +34,7 @@ export class BookmarkController {
     return this.bookmarkService.createBookmark(userId, dto);
   }
 
-  @Get()
+  @Get(':id')
   getBookmarkById(
     @GetUser('id') userId: number,
     @Param('id', ParseIntPipe) bookmarkId: number,
@@ -55,7 +57,8 @@ export class BookmarkController {
       dto,
     );
   }
-
+  
+  @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
   deleteBookmarkById(
     @GetUser('id') userId: number,

@@ -1,15 +1,39 @@
-### signin
+### get all bookmarks for one user
+GET  http://localhost:3001/bookmarks
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NzY0NSwiZXhwIjoxNjQ2NDU4NTQ1fQ.i--n4ayYfdNDTOoaZoLospRHc4fcF0sb4_cNF0gUcKU
+
+
+### get one bookmark by id
+GET  http://localhost:3001/bookmarks/2
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NzY0NSwiZXhwIjoxNjQ2NDU4NTQ1fQ.i--n4ayYfdNDTOoaZoLospRHc4fcF0sb4_cNF0gUcKU
+
+### create bookmark
 POST  http://localhost:3001/bookmarks
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NDc5NywiZXhwIjoxNjQ2NDU1Njk3fQ.NN3zzYG9Wdye4USY0HJEVaCer_2s3bYcRl253z3T8zQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NzY0NSwiZXhwIjoxNjQ2NDU4NTQ1fQ.i--n4ayYfdNDTOoaZoLospRHc4fcF0sb4_cNF0gUcKU
 
 {
   "title": "new Title",
   "description": "Title description",
   "link": "www.mylink.com"
 }  
- 
-### get all bookmarks for one user
-GET  http://localhost:3001/bookmarks
+
+### signin
+PATCH   http://localhost:3001/bookmarks/1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NDc5NywiZXhwIjoxNjQ2NDU1Njk3fQ.NN3zzYG9Wdye4USY0HJEVaCer_2s3bYcRl253z3T8zQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NzY0NSwiZXhwIjoxNjQ2NDU4NTQ1fQ.i--n4ayYfdNDTOoaZoLospRHc4fcF0sb4_cNF0gUcKU
+
+{
+  "title": "updated title",
+  "description": "updated description",
+  "link": "www.new-link.com"
+}  
+
+
+### create bookmark 
+DELETE  http://localhost:3001/bookmarks/1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NzY0NSwiZXhwIjoxNjQ2NDU4NTQ1fQ.i--n4ayYfdNDTOoaZoLospRHc4fcF0sb4_cNF0gUcKU
+
