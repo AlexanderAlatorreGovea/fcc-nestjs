@@ -19,4 +19,14 @@ export class UserService {
 
     return user;
   }
+
+  async findAll() {
+    const allUsers = this.prisma.user.findMany();
+
+    const sanitizedUsers = (await allUsers).map(
+      ({ hash, ...user }) => user,
+    );
+
+    return sanitizedUsers;
+  }
 }

@@ -1,9 +1,8 @@
-## Get personal information
+### Get personal information
 GET  http://localhost:3001/users/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw
 
-
-### signin
+### fix users information
 PATCH  http://localhost:3001/users
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw
@@ -12,3 +11,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpb
     "email": "aleanderr332333@hotmail.com",
     "lastName": "govea"
 } 
+
+### Get personal information
+GET  http://localhost:3001/users/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw

@@ -30,4 +30,9 @@ export class UserController {
   ) {
     return this.userService.editUser(userId, dto);
   }
+
+  @Get('all')
+  getAll() {
+    return this.userService.findAll();
+  }
 }
