@@ -1,0 +1,15 @@
+### signin
+POST  http://localhost:3001/bookmarks
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NDc5NywiZXhwIjoxNjQ2NDU1Njk3fQ.NN3zzYG9Wdye4USY0HJEVaCer_2s3bYcRl253z3T8zQ
+
+{
+  "title": "new Title",
+  "description": "Title description",
+  "link": "www.mylink.com"
+}  
+ 
+### get all bookmarks for one user
+GET  http://localhost:3001/bookmarks
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjQ1NDc5NywiZXhwIjoxNjQ2NDU1Njk3fQ.NN3zzYG9Wdye4USY0HJEVaCer_2s3bYcRl253z3T8zQ
