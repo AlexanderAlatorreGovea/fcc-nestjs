@@ -1,4 +1,4 @@
-import { ForbiddenException } from '@nestjs/common';
+import { ForbiddenException, UnauthorizedException } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 
 export class AuthErrors {
@@ -13,6 +13,10 @@ export class AuthErrors {
     }
 
     throw error;
+  }
+
+  throwAdminException() {
+    throw new UnauthorizedException('You do not have enough credential for this operation')
   }
 
   incorrectCredentialsError() {

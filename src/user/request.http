@@ -1,17 +1,17 @@
 ### Get personal information
 GET  http://localhost:3001/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxlYW5kZXJyMzM0NzgzQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ2NTI1NjE1LCJleHAiOjE2NDY1MjY1MTV9.23GU95kOGATZ4CtlRt_jmgLUfTXm8nKy2xtlwp-MfE8
 
 ### fix users information
 PATCH  http://localhost:3001/users
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxlYW5kZXJyMzM0NzgzQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ2NTI1NjE1LCJleHAiOjE2NDY1MjY1MTV9.23GU95kOGATZ4CtlRt_jmgLUfTXm8nKy2xtlwp-MfE8
 
 {
     "email": "aleanderr332333@hotmail.com",
     "lastName": "govea"
-} 
+}  
 
 ### Get personal information
 GET  http://localhost:3001/users/all
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6ImFsZWFuZGVycjMzMjMzM0Bob3RtYWlsLmNvbSIsImlhdCI6MTY0NjM2MTczNiwiZXhwIjoxNjQ2MzYyNjM2fQ.Eb-Xyz1-2w46VP0Ibkm_Djzmzdo2wJUE_ds0IHL2EUw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxlYW5kZXJyMzM0NzgzQGhvdG1haWwuY29tIiwiaWF0IjoxNjQ2NTI1NjE1LCJleHAiOjE2NDY1MjY1MTV9.23GU95kOGATZ4CtlRt_jmgLUfTXm8nKy2xtlwp-MfE8

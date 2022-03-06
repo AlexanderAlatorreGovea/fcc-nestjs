@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 import { AuthDto } from './dto';
 import { AuthErrors } from './auth.errors';
+import { Role } from '@prisma/client';
 
 @Injectable({})
 export class AuthService extends AuthErrors {
@@ -20,8 +21,14 @@ export class AuthService extends AuthErrors {
 
   async signup(dto: AuthDto) {
     try {
-      const { password, email, firstName, lastName } = dto;
+      const { password, email, firstName, lastName, role } = dto;
       const hash = await argon.hash(password);
+      const databaseHasAdmin = await this.prima.user.findFirst({
+        where: { role: Role.ADMIN },
+      });
+
+      if (databaseHasAdmin && role === Role.ADMIN)
+        this.throwAdminException();
 
       const user = await this.prima.user.create({
         data: {
@@ -29,6 +36,7 @@ export class AuthService extends AuthErrors {
           hash,
           firstName,
           lastName,
+          role,
         },
       });
 

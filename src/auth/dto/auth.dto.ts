@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client';
 import {
   IsEmail,
   IsNotEmpty,
@@ -21,4 +22,8 @@ export class AuthDto {
   @IsOptional()
   @IsString()
   lastName: string;
+
+  @IsOptional()
+  @IsString()
+  role: Role;
 }

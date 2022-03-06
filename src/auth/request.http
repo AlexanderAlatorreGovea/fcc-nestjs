@@ -1,20 +1,21 @@
 ## signup
 POST http://localhost:3001/auth/signup
 content-type: application/json
-
+ 
 {
-    "email": "aleanderr332333@hotmail.com",
+    "email": "aleanderr3344783@hotmail.com",
     "password": "alexander123",
     "firstName": "Dimitri",
-    "lastName": "Schiechinzky"
+    "lastName": "Schiechinzky",
+    "role": "ADMIN"
 }  
 
 ### signin
 POST http://localhost:3001/auth/signin
 content-type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImVtYWlsIjoiYWxlYW5kZXJyMzM3ODNAaG90bWFpbC5jb20iLCJpYXQiOjE2NDY1MjU0NTgsImV4cCI6MTY0NjUyNjM1OH0.OdNnsbbuv1GBpNxu-ce9TAj7NhshVd8euENl-o7DHoU
 
 {
-    "email": "aleanderr332333@hotmail.com",
+    "email": "aleanderr334783@hotmail.com",
     "password": "alexander123"
 } 

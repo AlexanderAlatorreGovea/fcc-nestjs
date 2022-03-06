@@ -1,4 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UseGuards } from '@nestjs/common';
+import { Roles } from '../authorization/decorators/index';
+import { RolesGuard } from '../authorization/guards';
+import { Role } from '../authorization/role.enum';
 import { PrismaService } from '../prisma/prisma.service';
 import { EditUserDto } from './dto';
 
@@ -19,7 +22,9 @@ export class UserService {
 
     return user;
   }
-
+ 
+  @Roles(Role.Admin)
+  @UseGuards(RolesGuard(Role.Admin))
   async findAll() {
     const allUsers = this.prisma.user.findMany();
 

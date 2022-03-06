@@ -19,6 +19,7 @@ model User {
   firstName String?
   lastName  String?
   bookmarks Bookmark[]
+  role      Role       @default(USER)
 
   @@map("users")
 }
@@ -34,4 +35,9 @@ model Bookmark {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("bookmarks")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
